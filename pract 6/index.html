@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style="background-color: aquamarine;">
+<head>
+    <title>Arreglos en JavaScript</title>
+</head>
+<body style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+    <label for="numeros">Ingresa números enteros separados por espacios:</label><br>
+    <h4>Arreglo 1</h4>
+    <input type="text" id="array1" placeholder="Ingrese números separados por comas">
+    
+    <h4>Arreglo 2</h4>
+    <input type="text" id="array2" placeholder="Ingrese números separados por comas">
+    
+    <button onclick="findMinAndSort()">Calcular</button>
+    
+    <h3>Arreglo Resultante (Mínimos Ordenados Descendente)</h3>
+    <div id="result"></div>
+
+    <script>
+        function findMinAndSort() {
+    // Obtener los valores ingresados en los dos arreglos
+    const inputArray1 = document.getElementById('array1').value;
+    const inputArray2 = document.getElementById('array2').value;
+
+    // Convertir los valores en arreglos de números
+    const arr1 = inputArray1.split(' ').map(Number);
+    const arr2 = inputArray2.split(' ').map(Number);
+
+    // Encontrar los valores mínimos de los dos arreglos
+    const minValues = [];
+    for (let i = 0; i < arr1.length; i++) {
+        minValues.push(Math.min(arr1[i], arr2[i]));
+    }
+
+    // Ordenar los valores mínimos en orden descendente
+    minValues.sort((a, b) => b - a);
+
+    // Mostrar el resultado en la página
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = minValues.join(', ');
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html style="background-color: aquamarine;">
+<head>
+    <title>numeros Mayor y Menor</title>
+</head>
+<body style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+    <h1>Primera actividad</h1><br>
+    <label for="numeros">Ingresa números enteros separados por espacios:</label>
+    <input type="text" id="numeros"><br><br>
+    <button onclick="calcularNumeros()">Calcular</button>
+
+    <script>
+        function calcularNumeros() {
+            // Obtén el valor del input y divídelo en un arreglo de números
+            const inputElement = document.getElementById('numeros');
+            const numerosStr = inputElement.value;
+            const numeros = numerosStr.split(' ').map(Number);
+
+            // Verifica si todos los elementos ingresados son números
+            if (numeros.some(isNaN)) {
+                console.log('Por favor, ingresa números enteros válidos.');
+                return;
+            }
+
+          
+
+            // Calcula el número mayor, el número menor y el promedio
+            const numeroMayor = Math.max(...numeros);
+            const numeroMenor = Math.min(...numeros);
+            const promedio = numeros.reduce((sum, num) => sum + num, 0) / numeros.length;
+
+            console.log('Número Mayor:', numeroMayor);
+            console.log('Número Menor:', numeroMenor);
+            console.log('Promedio:', promedio);
+        }
+    </script>
+</body>
+</html>

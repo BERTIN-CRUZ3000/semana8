@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html style="background-color: aquamarine;">
+<head>
+    <title>Valores Únicos</title>
+</head>
+<body style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+    <h1>Segunda actividad</h1><br>
+    <label for="numeros">Ingresa números enteros separados por espacios:</label><br>
+    <input type="text" id="inputArray"><br><br>
+    <button onclick="findUniqueValues()">Encontrar Valores Únicos</button>
+
+    <script>
+    function findUniqueValues() {
+        const inputArray = document.getElementById("inputArray").value;
+        
+        // Convertir la cadena de entrada en un arreglo de números
+        const numbers = inputArray.split(" ").map(Number);
+    
+        // Utilizar un conjunto (Set) para encontrar valores únicos
+        const uniqueValues = new Set(numbers);
+    
+        // Convertir el conjunto de valores únicos en un arreglo
+        const uniqueArray = [...uniqueValues];
+    
+        // Mostrar los valores únicos en la consola sin comas
+        console.log("Valores únicos:", uniqueArray.join(" "));
+    }
+    </script>
+</body>
+</html>

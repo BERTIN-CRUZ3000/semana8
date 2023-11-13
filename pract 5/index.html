@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html style="background-color: aquamarine;">
+<head>
+  <title>Arreglos y Mínimos</title>
+</head>
+<body   style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+  <h1>Arreglos y Mínimos</h1>
+
+  <p>Ingresa los elementos de los dos arreglos separados por comas:</p>
+  <input type="text" id="inputArray1" placeholder="Arreglo 1"><br><br>
+  <input type="text" id="inputArray2" placeholder="Arreglo 2"><br><br>
+  <button onclick="findMinValues()">Encontrar Mínimos</button>
+
+  <p>Arreglo 1: <span id="array1Result"></span></p>
+  <p>Arreglo 2: <span id="array2Result"></span></p>
+  <p>Arreglo de Mínimos Descendentes: <span id="minValuesResult"></span></p>
+
+  <script>
+    function findMinValues() {
+      // Obtén los valores de los dos arreglos desde los campos de entrada
+      const inputArray1 = document.getElementById("inputArray1").value;
+      const inputArray2 = document.getElementById("inputArray2").value;
+
+      // Convierte los valores de cadena en arreglos numéricos
+      const arr1 = inputArray1.split(' ').map(Number);
+      const arr2 = inputArray2.split(' ').map(Number);
+
+      // Encuentra los valores mínimos en los dos arreglos
+      const minValues = arr1.map((value, index) => Math.min(value, arr2[index]));
+
+      // Ordena los valores mínimos de manera descendente
+      minValues.sort((a, b) => b - a);
+
+      // Actualiza el contenido en el HTML
+      document.getElementById("array1Result").textContent = JSON.stringify(arr1);
+      document.getElementById("array2Result").textContent = JSON.stringify(arr2);
+      document.getElementById("minValuesResult").textContent = JSON.stringify(minValues);
+    }
+  </script>
+</body>
+</html>

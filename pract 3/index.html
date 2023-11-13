@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="background-color: aquamarine;">
+<head>
+    <title>Arreglos en JavaScript</title>
+</head>
+<body  style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+    <h1>Segunda actividad</h1><br>
+    <label for="numeros">Ingresa números enteros separados por espacios:</label><br>
+    <label for="array1">Arreglo 1:</label><br>
+    <input type="text" id="array1" placeholder="Ingrese valores separados por comas">
+    <br>
+    <label for="array2">Arreglo 2:</label><br>
+    <input type="text" id="array2" placeholder="Ingrese valores separados por comas">
+    <br><br>
+    <button onclick="concatAndSortArrays()">Generar y Ordenar Arreglo</button>
+
+    <script>
+        function concatAndSortArrays() {
+            const array1Input = document.getElementById("array1").value;
+            const array2Input = document.getElementById("array2").value;
+
+            const array1 = array1Input.split(" ").map(Number);
+            const array2 = array2Input.split(" ").map(Number);
+
+            const combinedArray = array1.concat(array2);
+            const sortedArray = combinedArray.sort((a, b) => a - b);
+
+            console.log("Arreglo combinado y ordenado:", sortedArray);
+        }
+    </script>
+</body>
+</html>

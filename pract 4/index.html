@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  style="background-color: aquamarine;">
+<head>
+    <title>Moda de un arreglo de números</title>
+</head>
+<body  style="padding:30px; margin: 40px;background-color: rgb(253, 253, 253);">
+    <h1>Calculadora de Moda</h1>
+    <p>Ingrese los números separados por comas:</p>
+    <input type="text" id="numbersInput"><br>
+    <button onclick="calcularModa()">Calcular Moda</button>
+    <div id="result"></div>
+
+    <script>
+        function calcularModa() {
+            const numbersInput = document.getElementById("numbersInput").value;
+            const numbersArray = numbersInput.split(' ').map(Number);
+            
+            // Calcular la moda
+            const frequencyMap = {};
+            let moda = null;
+            let maxFrequency = 0;
+
+            for (const number of numbersArray) {
+                frequencyMap[number] = (frequencyMap[number] || 0) + 1;
+                if (frequencyMap[number] > maxFrequency) {
+                    moda = number;
+                    maxFrequency = frequencyMap[number];
+                }
+            }
+
+            if (moda !== null) {
+                console.log("numero de modal es: ",moda);
+            } else {
+                document.getElementById("result").innerText = "No hay moda en la lista.";
+            }
+        }
+    </script>
+</body>
+</html>
